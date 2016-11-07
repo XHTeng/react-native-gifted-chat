@@ -2,6 +2,8 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  Image,
+  TouchableOpacity
 } from 'react-native';
 
 import Composer from './Composer';
@@ -49,6 +51,14 @@ export default class InputToolbar extends React.Component {
     return (
       <View style={[styles.container, this.props.containerStyle]}>
         <View style={[styles.primary, this.props.primaryStyle]}>
+          <TouchableOpacity>
+          <Image
+              style={{height:30,width:30,marginLeft:10,marginBottom:7}}
+              source={require('./customer_service_camera.png')}
+              resizeMode="contain"
+           />
+          </TouchableOpacity>
+
           {this.renderActions()}
           {this.renderComposer()}
           {this.renderSend()}
@@ -61,9 +71,7 @@ export default class InputToolbar extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: '#b2b2b2',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#EEEEEE',
   },
   primary: {
     flexDirection: 'row',

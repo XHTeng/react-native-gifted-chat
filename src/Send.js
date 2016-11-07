@@ -14,14 +14,13 @@ export default class Send extends React.Component {
   //   return false;
   // }
   render() {
-    if (this.props.text.trim().length > 0) {
+    if (true) {
       return (
         <TouchableOpacity
           style={[styles.container, this.props.containerStyle]}
           onPress={() => {
             this.props.onSend({text: this.props.text.trim()}, true);
           }}
-          accessibilityTraits="button"
         >
           <Text style={[styles.text, this.props.textStyle]}>{this.props.label}</Text>
         </TouchableOpacity>
@@ -33,15 +32,19 @@ export default class Send extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 44,
+    height: 30,
     justifyContent: 'flex-end',
+    backgroundColor:'#5C6F98',
+    marginBottom:7,
+    borderRadius:6,
+    marginRight:10,
+    alignItems:'center'
   },
   text: {
-    color: '#0084ff',
-    fontWeight: '600',
+    color: 'white',
     fontSize: 17,
     backgroundColor: 'transparent',
-    marginBottom: 12,
+    marginBottom: 6.5,
     marginLeft: 10,
     marginRight: 10,
   },
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
 Send.defaultProps = {
   text: '',
   onSend: () => {},
-  label: 'Send',
+  label: '发送',
   containerStyle: {},
   textStyle: {},
 };

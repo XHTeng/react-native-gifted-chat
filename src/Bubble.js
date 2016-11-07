@@ -76,8 +76,8 @@ export default class Bubble extends React.Component {
     } else {
       if (this.props.currentMessage.text) {
         const options = [
-          'Copy Text',
-          'Cancel',
+          '复制',
+          '取消',
         ];
         const cancelButtonIndex = options.length - 1;
         this.context.actionSheet().showActionSheetWithOptions({
@@ -101,14 +101,12 @@ export default class Bubble extends React.Component {
         <View style={[styles[this.props.position].wrapper, this.props.wrapperStyle[this.props.position], this.handleBubbleToNext(), this.handleBubbleToPrevious()]}>
           <TouchableWithoutFeedback
             onLongPress={this.onLongPress}
-            accessibilityTraits="text"
             {...this.props.touchableProps}
           >
             <View>
               {this.renderCustomView()}
               {this.renderMessageImage()}
               {this.renderMessageText()}
-              {this.renderTime()}
             </View>
           </TouchableWithoutFeedback>
         </View>
@@ -125,7 +123,7 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: '#f0f0f0',
+      backgroundColor: '#666666',
       marginRight: 60,
       minHeight: 20,
       justifyContent: 'flex-end',
@@ -144,7 +142,7 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: '#0084ff',
+      backgroundColor: '#5C6F98',
       marginLeft: 60,
       minHeight: 20,
       justifyContent: 'flex-end',

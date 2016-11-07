@@ -71,14 +71,11 @@ export default class GiftedAvatar extends React.Component {
     if (!this.props.user.name && !this.props.user.avatar) {
       // render placeholder
       return (
-        <View
-          style={[
-            defaultStyles.avatarStyle,
-            {backgroundColor: 'transparent'},
-            this.props.avatarStyle,
-          ]}
-          accessibilityTraits="image"
-        />
+        <View style={[
+          defaultStyles.avatarStyle,
+          {backgroundColor: 'transparent'},
+          this.props.avatarStyle,
+        ]}/>
       )
     }
     if (this.props.user.avatar) {
@@ -89,7 +86,6 @@ export default class GiftedAvatar extends React.Component {
             const {onPress, ...other} = this.props;
             this.props.onPress && this.props.onPress(other);
           }}
-          accessibilityTraits="image"
         >
           {this.renderAvatar()}
         </TouchableOpacity>
@@ -112,7 +108,6 @@ export default class GiftedAvatar extends React.Component {
           {backgroundColor: this.avatarColor},
           this.props.avatarStyle,
         ]}
-        accessibilityTraits="image"
       >
         {this.renderInitials()}
       </TouchableOpacity>
