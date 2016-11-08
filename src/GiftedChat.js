@@ -382,6 +382,7 @@ class GiftedChat extends React.Component {
     }
     return (
       <InputToolbar
+        selectedImage = {this.props.selectedImage}
         {...inputToolbarProps}
       />
     );

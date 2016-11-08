@@ -8,6 +8,21 @@ import {
 
 import Composer from './Composer';
 import Send from './Send';
+import ImagePicker from 'react-native-image-picker';
+
+
+var options = {
+  title: '选择照片',
+  cancelButtonTitle:'取消',
+  chooseFromLibraryButtonTitle:'打开相册',
+  takePhotoButtonTitle:'打开相机',
+  allowsEditing:true,
+
+  storageOptions: {
+    skipBackup: true,
+    path: 'images'
+  }
+};
 
 export default class InputToolbar extends React.Component {
   renderActions() {
@@ -47,11 +62,40 @@ export default class InputToolbar extends React.Component {
     return null;
   }
 
+  selectPhoto = ()=> {
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      }
+      else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      }
+
+      else {
+        // You can display the image using either data...
+        // const source = {uri: 'data:image/jpeg;base64,' + response.data, isStatic: true};
+        //
+        // // or a reference to the platform specific asset location
+        // if (Platform.OS === 'ios') {
+        //     const source = {uri: response.uri.replace('file://', ''), isStatic: true};
+        // } else {
+        //     const source = {uri: response.uri, isStatic: true};
+        // }
+        if (response.uri) {
+          this.props.selectedImage(response.uri);
+        }
+
+      }
+    });
+  };
+
   render() {
     return (
       <View style={[styles.container, this.props.containerStyle]}>
         <View style={[styles.primary, this.props.primaryStyle]}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this.selectPhoto}>
           <Image
               style={{height:30,width:30,marginLeft:10,marginBottom:7}}
               source={require('./customer_service_camera.png')}
