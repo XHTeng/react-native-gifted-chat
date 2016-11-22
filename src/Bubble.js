@@ -123,7 +123,7 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: '#666666',
+      backgroundColor: '#eeeeee',
       marginRight: 60,
       minHeight: 20,
       justifyContent: 'flex-end',
