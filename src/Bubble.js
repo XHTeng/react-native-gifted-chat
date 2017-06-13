@@ -142,7 +142,7 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: '#5C6F98',
+      backgroundColor: '#eeeeee',
       marginLeft: 60,
       minHeight: 20,
       justifyContent: 'flex-end',
